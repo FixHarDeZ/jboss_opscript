@@ -1,0 +1,35 @@
+#!/bin/bash
+###############################################################################
+#v1.1 Add check JVM status ,set sleep time.
+#v1.2 Add check multiple error keyword.
+#v1.3 Add check process that already started.
+#v1.4 Fix minor sleep bug.
+#v2.0 Add loop check JVM status ,modify function in script.
+#v2.1 Add controllerhostname when hostcontroller is not locate on same machine.
+#v2.2 Fix bug recheck JVM status.
+#v2.3 Change variable HOSTNAME to DOMAINHOSTNAME. 5/10/2017
+#v2.4 Change script path to standard for VRA. 27/3/2018
+#v2.5 add verify jboss script. 19/4/2018
+#v2.6 fix bug JBOSSLIB path. 4/9/2018
+#v2.7 fix bug write tmp files in /jboss_log 3/10/2018
+#v2.7.2 fix kill script to exit 0 11/03/2019
+#v2.7.3 split OPScript path to jboss 19/03/2019
+#Create by Peerawat.u
+###############################################################################
+#Require to fill parameter.
+#export JBOSSLIB="/jboss"
+#export DOMAINHOSTNAME="jbossIDVAapp01"
+#export CONTROLLERHOSTNAME="jbossIDVAapp01"
+#export JVM=(IDVAServer01 IDVAServer02)
+###############################################################################
+export JBOSSDOMAIN="/jbossDomain"
+export TMPLOG=/jboss_log
+#error keyword in server.log ex.("errorkw1" "errorkw2")
+export ERRORKW=(error ERROR)
+export PROJECT="PROJECT"
+export STARTPATH="/OPScript/MDW/${PROJECT}/start"
+export STOPPATH="/OPScript/MDW/${PROJECT}/stop"
+
+#set sleep time for waiting to start Host Controller and Application Server(JVM) /sec
+export SLEEP=60
+
